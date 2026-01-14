@@ -1,12 +1,10 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask import render_template, request, redirect, url_for, session, flash
 from werkzeug.security import check_password_hash, generate_password_hash
 from firebase_config import init_firestore
 
-auth_bp = Blueprint('auth', __name__)
 db = init_firestore()
 
-@auth_bp.route('/login', methods=['GET', 'POST'])
-def login():
+def login_logic():
     if request.method == 'POST':
         email = request.form.get('email')
         senha = request.form.get('senha')
@@ -20,7 +18,7 @@ def login():
 
             if not user['ativo']:
                 flash("Usuário desativado. Procure a administração.", "error")
-                return redirect(url_for('auth.login'))
+                return redirect(url_for('login'))
 
             if check_password_hash(user['senha'], senha):
                 session['user_id'] = u.id
@@ -29,22 +27,20 @@ def login():
                 session['user_nome'] = user['nome']
 
                 if user['primeiro_login']:
-                    return redirect(url_for('auth.trocar_senha'))
+                    return redirect(url_for('trocar_senha'))
 
                 return redirect(url_for('dashboard'))
 
         flash("Credenciais inválidas!", "error")
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('login'))
         
     return render_template('auth/login.html')
 
-@auth_bp.route('/logout')
-def logout():
+def logout_logic():
     session.clear()
-    return redirect(url_for('auth.login'))
+    return redirect(url_for('login'))
 
-@auth_bp.route('/trocar_senha', methods=['GET', 'POST'])
-def trocar_senha():
+def trocar_senha_logic():
     if not session.get('primeiro_login'):
         return redirect(url_for('dashboard'))
 

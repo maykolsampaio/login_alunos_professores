@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Disciplinas - Portal{% endblock %}
+{% block header_title %}Gerenciamento de Disciplinas{% endblock %}
+
+{% block content %}
+<div class="actions-bar" style="margin-bottom: 2rem; display: flex; justify-content: flex-end;">
+    <a href="{{ url_for('criar_disciplina') }}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Criar Nova Disciplina
+    </a>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Professor</th>
+                <th>Alunos Matriculados</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for d in disciplinas %}
+            <tr>
+                <td><code>{{ d.id }}</code></td>
+                <td><span style="font-weight: 600;">{{ d.nome }}</span></td>
+                <td>{{ d.professor_nome if d.professor_nome else '-' }}</td>
+                <td>{{ d.alunosRefs | length }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4" style="text-align: center; color: var(--text-muted);">Nenhuma disciplina encontrada.
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

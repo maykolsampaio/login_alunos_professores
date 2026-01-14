@@ -8,7 +8,7 @@
 <div class="card profile-card">
     <h2 class="profile-title">Meu Perfil</h2>
 
-    <form method="post" action="{{ url_for('perfil.perfil') }}">
+    <form method="post" action="{{ url_for('perfil') }}">
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" id="nome" name="nome" value="{{ usuario.nome }}" required>
@@ -47,7 +47,7 @@
     <div class="deactivate-section">
         <p class="deactivate-text">Deseja encerrar sua conta? Esta ação não pode ser
             desfeita.</p>
-        <a href="{{ url_for('perfil.desativar_conta') }}"
+        <a href="{{ url_for('desativar_conta') }}"
             onclick="return confirm('Tem certeza que deseja desativar sua conta? Você será desconectado.')"
             class="btn-deactivate">
             Encerrar Conta

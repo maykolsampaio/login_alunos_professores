@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="card" style="max-width: 600px;">
-    <form action="{{ url_for('admin.criar_usuario') }}" method="POST">
+    <form action="{{ url_for('criar_usuario') }}" method="POST">
         <div class="form-group">
             <label for="nome">Nome Completo</label>
             <input type="text" id="nome" name="nome" required placeholder="Nome do usuário">
@@ -34,7 +34,11 @@
             </select>
         </div>
 
-        <button type="submit" class="btn">Cadastrar Usuário</button>
+        <div style="display: flex; gap: 1rem; margin-top: 1rem; justify-content: flex-end;">
+            <a href="{{ url_for('listar_usuarios') }}" class="btn"
+                style="background: var(--bg-primary); border: 1px solid var(--border-color); color: var(--text-primary); text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 6px;">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
+        </div>
     </form>
 </div>
 

@@ -1,26 +1,26 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask import render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash
 from datetime import datetime
 import random
 import string
+import re
+import unicodedata
 from firebase_config import init_firestore
 
-admin_bp = Blueprint('admin', __name__)
 db = init_firestore()
 
 def gerar_matricula(tipo):
     if tipo == 'professor':
         return str(random.randint(10000, 99999))
     else:
-        caracteres = string.ascii_uppercase + string.digits
-        return ''.join(random.choices(caracteres, k=8))
+        ano = datetime.now().year
+        sufixo = str(random.randint(0, 9999)).zfill(4)
+        return f"{ano}116ISINF{sufixo}"
 
-@admin_bp.route('/admin/dashboard')
-def dashboard():
+def dashboard_admin_logic():
     if 'user_id' not in session or session.get('user_tipo') != 'admin':
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('login'))
 
-    user_id = session['user_id']
     user_nome = session.get('user_nome')
     user_tipo = session['user_tipo']
 
@@ -49,8 +49,7 @@ def dashboard():
         nome=user_nome
     )
 
-@admin_bp.route('/admin/listar_usuarios')
-def listar_usuarios():
+def listar_usuarios_logic():
     if session.get('user_tipo') != 'admin':
         return redirect(url_for('dashboard'))
 
@@ -59,8 +58,7 @@ def listar_usuarios():
 
     return render_template('admin/usuarios.html', usuarios=usuarios)
 
-@admin_bp.route('/admin/criar_usuario', methods=['GET', 'POST'])
-def criar_usuario():
+def criar_usuario_logic():
     if session.get('user_tipo') != 'admin':
         return redirect(url_for('dashboard'))
 
@@ -97,12 +95,11 @@ def criar_usuario():
 
         db.collection('usuarios').document(matricula).set(dados)
         flash(f"Usuário criado com sucesso! Matrícula: {matricula}", "success")
-        return redirect(url_for('admin.listar_usuarios'))
+        return redirect(url_for('listar_usuarios'))
     
     return render_template('admin/criar_usuario.html')
 
-@admin_bp.route('/admin/toggle/<id_usuario>')
-def toggle_usuario(id_usuario):
+def toggle_usuario_logic(id_usuario):
     if session.get('user_tipo') != 'admin':
         return redirect(url_for('dashboard'))
 
@@ -110,4 +107,66 @@ def toggle_usuario(id_usuario):
     db.collection('usuarios').document(id_usuario).update({
         'ativo': not user['ativo']
     })
-    return redirect(url_for('admin.listar_usuarios'))
+    return redirect(url_for('listar_usuarios'))
+
+def slugify(text):
+    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
+    text = re.sub(r'[^\w\s-]', '', text).strip().lower()
+    return re.sub(r'[-\s]+', '_', text)
+
+def listar_disciplinas_logic():
+    if session.get('user_tipo') != 'admin':
+        return redirect(url_for('dashboard'))
+
+    disciplinas_ref = db.collection('disciplinas').stream()
+    disciplinas = []
+    for d in disciplinas_ref:
+        d_data = d.to_dict()
+        d_data['id'] = d.id
+        
+        prof_ref = d_data.get('professorRef')
+        if prof_ref:
+            prof_id = prof_ref.split('/')[-1]
+            prof_doc = db.collection('usuarios').document(prof_id).get()
+            if prof_doc.exists:
+                d_data['professor_nome'] = prof_doc.to_dict().get('nome')
+        
+        disciplinas.append(d_data)
+
+    return render_template('admin/disciplinas.html', disciplinas=disciplinas)
+
+def criar_disciplina_logic():
+    if session.get('user_tipo') != 'admin':
+        return redirect(url_for('dashboard'))
+
+    if request.method == 'POST':
+        nome = request.form.get('nome')
+        ementa = request.form.get('ementa')
+        professor_id = request.form.get('professor_id')
+
+        if not nome or not professor_id:
+            flash("Nome e Professor são obrigatórios!", "error")
+            return redirect(url_for('criar_disciplina'))
+
+        disciplina_id = slugify(nome)
+        
+        # Check if ID already exists
+        if db.collection('disciplinas').document(disciplina_id).get().exists:
+            # Add a random suffix if it exists
+            disciplina_id += "_" + ''.join(random.choices(string.digits, k=4))
+
+        dados = {
+            'nome': nome,
+            'ementa': ementa,
+            'professorRef': f"usuarios/{professor_id}",
+            'alunosRefs': []
+        }
+
+        db.collection('disciplinas').document(disciplina_id).set(dados)
+        flash(f"Disciplina '{nome}' criada com sucesso!", "success")
+        return redirect(url_for('admin_listar_disciplinas'))
+
+    professores_ref = db.collection('usuarios').where('tipo', '==', 'professor').stream()
+    professores = [{**p.to_dict(), 'id': p.id} for p in professores_ref]
+
+    return render_template('admin/criar_disciplina.html', professores=professores)

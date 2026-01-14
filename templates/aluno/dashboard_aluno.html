@@ -49,7 +49,7 @@
                 </svg>
                 Detalhes
             </button>
-            <form action="{{ url_for('aluno.remover_disciplina', disciplina_id=disc.id) }}" method="POST"
+            <form action="{{ url_for('remover_disciplina', disciplina_id=disc.id) }}" method="POST"
                 style="display: inline;" onsubmit="return confirm('Tem certeza que deseja remover esta disciplina?')">
                 <button type="submit" class="btn-sm btn-danger-outline">
                     <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@
                     <strong style="display: block; color: var(--primary);">{{ d.nome }}</strong>
                     <small style="color: var(--text-muted);">{{ d.ementa[:60] }}...</small>
                 </div>
-                <form action="{{ url_for('aluno.add_disciplina') }}" method="POST">
+                <form action="{{ url_for('add_disciplina') }}" method="POST">
                     <input type="hidden" name="disciplina_id" value="{{ d.id }}">
                     <button type="submit" class="btn-sm btn-outline">Matricular</button>
                 </form>

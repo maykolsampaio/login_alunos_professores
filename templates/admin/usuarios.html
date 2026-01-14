@@ -9,6 +9,12 @@
 {% set alunos = usuarios | selectattr('tipo', 'equalto', 'aluno') | list %}
 {% set professores = usuarios | selectattr('tipo', 'equalto', 'professor') | list %}
 
+<div class="actions-bar" style="margin-bottom: 2rem; display: flex; justify-content: flex-end;">
+    <a href="{{ url_for('criar_usuario') }}" class="btn btn-primary">
+        <i class="fas fa-plus"></i> Cadastrar Novo Usuário
+    </a>
+</div>
+
 <div class="stats-grid">
     <div class="category-card" onclick="toggleSection('alunos')" id="card-alunos">
         <div class="category-info">
@@ -62,7 +68,7 @@
                     <td>
                         <label class="switch">
                             <input type="checkbox" {% if u.ativo %}checked{% endif %}
-                                data-url="{{ url_for('admin.toggle_usuario', id_usuario=u.id) }}"
+                                data-url="{{ url_for('toggle_usuario', id_usuario=u.id) }}"
                                 onchange="window.location.href = this.getAttribute('data-url')">
                             <span class="slider"></span>
                         </label>
@@ -110,7 +116,7 @@
                     <td>
                         <label class="switch">
                             <input type="checkbox" {% if u.ativo %}checked{% endif %}
-                                data-url="{{ url_for('admin.toggle_usuario', id_usuario=u.id) }}"
+                                data-url="{{ url_for('toggle_usuario', id_usuario=u.id) }}"
                                 onchange="window.location.href = this.getAttribute('data-url')">
                             <span class="slider"></span>
                         </label>

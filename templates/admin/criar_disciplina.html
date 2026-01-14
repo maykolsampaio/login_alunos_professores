@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Criar Disciplina - Portal{% endblock %}
+{% block header_title %}Criar Nova Disciplina{% endblock %}
+
+{% block content %}
+<div class="form-container"
+    style="max-width: 600px; margin: 0 auto; background: var(--bg-secondary); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-sm);">
+    <form method="POST">
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="nome" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nome da
+                Disciplina</label>
+            <input type="text" id="nome" name="nome" required
+                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary);">
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="ementa" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Ementa</label>
+            <textarea id="ementa" name="ementa" rows="4"
+                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary); resize: vertical;"></textarea>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 2rem;">
+            <label for="professor_id" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Professor
+                Responsável</label>
+            <select id="professor_id" name="professor_id" required
+                style="width: 100%; padding: 0.75rem; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary);">
+                <option value="" disabled selected>Selecione um professor</option>
+                {% for p in professores %}
+                <option value="{{ p.id }}">{{ p.nome }} ({{ p.matricula }})</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+            <a href="{{ url_for('admin_listar_disciplinas') }}" class="btn"
+                style="background: var(--bg-primary); border: 1px solid var(--border-color);">Cancelar</a>
+            <button type="submit" class="btn btn-primary">Criar Disciplina</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

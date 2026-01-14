@@ -1,20 +1,17 @@
-from flask import Blueprint, render_template, request, redirect, url_for, session, flash
+from flask import render_template, request, redirect, url_for, session, flash
 from firebase_config import init_firestore
 from firebase_admin import firestore
 
-aluno_bp = Blueprint('aluno', __name__)
 db = init_firestore()
 
-@aluno_bp.route('/aluno/dashboard')
-def dashboard():
+def dashboard_aluno_logic():
     if 'user_id' not in session or session.get('user_tipo') != 'aluno':
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('login'))
 
     user_id = session['user_id']
     user_nome = session.get('user_nome')
     user_tipo = session['user_tipo']
 
-    # Carregar disciplinas onde o aluno está matriculado
     user_path = f"usuarios/{user_id}"
     disciplinas_query = db.collection('disciplinas').where('alunosRefs', 'array_contains', user_path).stream()
     
@@ -25,7 +22,6 @@ def dashboard():
         d_data['id'] = d.id
         disc_ids.append(d.id)
         
-        # Buscar dados do professor
         prof_ref = d_data.get('professorRef')
         if prof_ref:
             prof_id = prof_ref.split('/')[-1]
@@ -35,7 +31,6 @@ def dashboard():
         
         disciplinas_do_aluno.append(d_data)
     
-    # Carregar todas as disciplinas disponíveis
     todas_disciplinas_ref = db.collection('disciplinas').stream()
     todas_disciplinas = []
     for d in todas_disciplinas_ref:
@@ -50,8 +45,7 @@ def dashboard():
                          todas_disciplinas=todas_disciplinas,
                          tipo=user_tipo)
 
-@aluno_bp.route('/aluno/add_disciplina', methods=['POST'])
-def add_disciplina():
+def add_disciplina_logic():
     if session.get('user_tipo') != 'aluno':
         return redirect(url_for('dashboard'))
 
@@ -60,7 +54,7 @@ def add_disciplina():
 
     if not disciplina_id:
         flash("Nenhuma disciplina selecionada!", "error")
-        return redirect(url_for('aluno.dashboard'))
+        return redirect(url_for('dashboard'))
 
     user_path = f"usuarios/{user_id}"
     disc_ref = db.collection('disciplinas').document(disciplina_id)
@@ -78,10 +72,9 @@ def add_disciplina():
     else:
         flash("Disciplina não encontrada!", "error")
     
-    return redirect(url_for('aluno.dashboard'))
+    return redirect(url_for('dashboard'))
 
-@aluno_bp.route('/aluno/remover_disciplina/<disciplina_id>', methods=['POST'])
-def remover_disciplina(disciplina_id):
+def remover_disciplina_logic(disciplina_id):
     if session.get('user_tipo') != 'aluno':
         return redirect(url_for('dashboard'))
 
@@ -94,4 +87,4 @@ def remover_disciplina(disciplina_id):
     })
     
     flash("Disciplina removida com sucesso!", "success")
-    return redirect(url_for('aluno.dashboard'))
+    return redirect(url_for('dashboard'))

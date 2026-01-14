@@ -1,19 +1,16 @@
-from flask import Blueprint, render_template, redirect, url_for, session
+from flask import render_template, redirect, url_for, session
 from firebase_config import init_firestore
 
-professor_bp = Blueprint('professor', __name__)
 db = init_firestore()
 
-@professor_bp.route('/professor/dashboard')
-def dashboard():
+def dashboard_professor_logic():
     if 'user_id' not in session or session.get('user_tipo') != 'professor':
-        return redirect(url_for('auth.login'))
+        return redirect(url_for('login'))
 
     user_id = session['user_id']
     user_nome = session.get('user_nome')
     user_tipo = session['user_tipo']
 
-    # Carregar disciplinas do professor
     prof_id_str = f"usuarios/{user_id}"
     disciplinas_query = db.collection('disciplinas').where('professorRef', '==', prof_id_str).stream()
     
@@ -22,7 +19,6 @@ def dashboard():
         d_data = d.to_dict()
         d_data['id'] = d.id
         
-        # Buscar alunos matriculados usando alunosRefs
         alunos_matriculados = []
         alunos_refs = d_data.get('alunosRefs', [])
         for alu_path in alunos_refs:

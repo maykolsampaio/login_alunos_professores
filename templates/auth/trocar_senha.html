@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="card" style="max-width: 500px;">
-    <form action="{{ url_for('auth.trocar_senha') }}" method="POST">
+    <form action="{{ url_for('trocar_senha') }}" method="POST">
         <div class="form-group">
             <label for="senha">Nova Senha</label>
             <input type="password" id="senha" name="senha" required placeholder="Nova senha">

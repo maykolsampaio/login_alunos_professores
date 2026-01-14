@@ -40,7 +40,7 @@
                 <td>
                     <label class="switch" title="Clique para {{ 'Desativar' if u.ativo else 'Ativar' }}">
                         <input type="checkbox" {% if u.ativo %}checked{% endif %}
-                            data-url="{{ url_for('admin.toggle_usuario', id_usuario=u.id) }}"
+                            data-url="{{ url_for('toggle_usuario', id_usuario=u.id) }}"
                             onchange="window.location.href = this.dataset.url;">
                         <span class="slider"></span>
                     </label>
