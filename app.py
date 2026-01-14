@@ -1,6 +1,4 @@
-from flask import Flask, redirect, url_for, session, request, flash
-from dotenv import load_dotenv
-import os
+from flask import Flask, redirect, url_for, session, flash
 from firebase_config import init_firestore
 
 # Logic imports
@@ -11,10 +9,8 @@ from logic.professor_logic import dashboard_professor_logic
 from logic.perfil_logic import perfil_logic, desativar_conta_logic
 from utils.batch_import import importar_dados_em_lote
 
-load_dotenv()
-
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY")
+app.secret_key = "a1b2c3d4e5"
 
 # Initialize Firestore
 db = init_firestore()

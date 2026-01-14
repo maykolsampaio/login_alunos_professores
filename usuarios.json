@@ -475,7 +475,7 @@
     }
   },
   "disciplinas": {
-    "manutencao_de_computadores": {
+    "23PEYY2PSrgGK7bmXsY0": {
       "nome": "Manutenção de Computadores",
       "ementa": "Ementa da disciplina de Manutenção de Computadores.",
       "professorRef": "usuarios/28717",
@@ -487,7 +487,7 @@
         "usuarios/2024116ISINF0043"
       ]
     },
-    "protocolos_de_aplicacao": {
+    "bHcVxUW8B2inxcQVnkK7": {
       "nome": "Protocolos de Aplicação",
       "ementa": "Ementa da disciplina de Protocolos de Aplicação.",
       "professorRef": "usuarios/40719",
@@ -499,7 +499,7 @@
         "usuarios/2024116ISINF0056"
       ]
     },
-    "pratica_e_gerencia_de_redes": {
+    "8dpi1QbPw6cX6rgLdW7A": {
       "nome": "Prática e Gerência de Redes",
       "ementa": "Ementa da disciplina de Prática e Gerência de Redes.",
       "professorRef": "usuarios/85968",
@@ -516,7 +516,7 @@
         "usuarios/2024116ISINF0045"
       ]
     },
-    "programacao_web": {
+    "SnRfJIlhI0gopprX5pxL": {
       "nome": "Programação Web",
       "ementa": "Ementa da disciplina de Programação Web.",
       "professorRef": "usuarios/85968",
@@ -524,7 +524,7 @@
         "usuarios/2023116ISINF0025"
       ]
     },
-    "analise_e_projeto_de_sistemas": {
+    "ynfF8OoaQaFx8gbQMZ87": {
       "nome": "Análise e Projeto de Sistemas",
       "ementa": "Ementa da disciplina de Análise e Projeto de Sistemas.",
       "professorRef": "usuarios/49221",
@@ -538,7 +538,7 @@
         "usuarios/2024116ISINF0048"
       ]
     },
-    "programacao_orientada_a_objetos": {
+    "9Cwlqqf7J9N8g3U22ZwA": {
       "nome": "Programação Orientada a Objetos",
       "ementa": "Ementa da disciplina de Programação Orientada a Objetos.",
       "professorRef": "usuarios/40719",
@@ -547,7 +547,7 @@
         "usuarios/2024116ISINF0046"
       ]
     },
-    "topicos_especiais_em_desenvolvimento": {
+    "VLqsUEtEyOAevFOroqSW": {
       "nome": "Tópicos Especiais em Desenvolvimento",
       "ementa": "Ementa da disciplina de Tópicos Especiais em Desenvolvimento.",
       "professorRef": "usuarios/94526",
@@ -558,7 +558,7 @@
         "usuarios/2024116ISINF0050"
       ]
     },
-    "informatica_basica": {
+    "L3MvM8Eqz0QAehBWWMHW": {
       "nome": "INFORMÁTICA BÁSICA",
       "ementa": "Ementa da disciplina de INFORMÁTICA BÁSICA.",
       "professorRef": "usuarios/28717",
@@ -570,7 +570,7 @@
         "usuarios/2024116ISINF0052"
       ]
     },
-    "sistemas_operacionais": {
+    "TrU5ojCczDAKVOXzAL9h": {
       "nome": "SISTEMAS OPERACIONAIS",
       "ementa": "Ementa da disciplina de SISTEMAS OPERACIONAIS.",
       "professorRef": "usuarios/85968",
@@ -586,7 +586,7 @@
         "usuarios/2024116ISINF0051"
       ]
     },
-    "fundamentos_de_redes_de_computadares": {
+    "HM9g8GxZ0XRBcOdaKUK7": {
       "nome": "FUNDAMENTOS DE REDES DE COMPUTADARES",
       "ementa": "Ementa da disciplina de FUNDAMENTOS DE REDES DE COMPUTADARES.",
       "professorRef": "usuarios/63338",
@@ -601,7 +601,7 @@
         "usuarios/2024116ISINF0064"
       ]
     },
-    "robotica": {
+    "iqgYsmg8g3xhIgxW2igs": {
       "nome": "ROBOTICA",
       "ementa": "Ementa da disciplina de ROBOTICA.",
       "professorRef": "usuarios/11254",
@@ -613,7 +613,7 @@
         "usuarios/2024116ISINF0070"
       ]
     },
-    "algoritmos_e_logica_de_programacao": {
+    "1yxLujee1FYxjdtkBu3k": {
       "nome": "ALGORITMOS E LÓGICA DE PROGRAMAÇÃO",
       "ementa": "Ementa da disciplina de ALGORITMOS E LÓGICA DE PROGRAMAÇÃO.",
       "professorRef": "usuarios/94526",
@@ -629,7 +629,7 @@
         "usuarios/2024116ISINF0048"
       ]
     },
-    "introducao_a_programacao_web": {
+    "yIWKGH7A6u6JC7CV1fXe": {
       "nome": "INTRODUÇÃO A PROGRAMAÇÃO WEB",
       "ementa": "Ementa da disciplina de INTRODUÇÃO A PROGRAMAÇÃO WEB.",
       "professorRef": "usuarios/85968",
@@ -640,7 +640,7 @@
         "usuarios/2024116ISINF0039"
       ]
     },
-    "tecnologias_emergentes": {
+    "YysicoIfPUebRLnQPqN7": {
       "nome": "TECNOLOGIAS EMERGENTES",
       "ementa": "Ementa da disciplina de TECNOLOGIAS EMERGENTES.",
       "professorRef": "usuarios/94526",
@@ -651,7 +651,7 @@
         "usuarios/2024116ISINF0071"
       ]
     },
-    "seguranca_da_informacao": {
+    "NgdNjvw6u4IT4D7B56q4": {
       "nome": "SEGURANÇA DA INFORMAÇÃO",
       "ementa": "Ementa da disciplina de SEGURANÇA DA INFORMAÇÃO.",
       "professorRef": "usuarios/63338",
@@ -660,7 +660,7 @@
         "usuarios/2024116ISINF0038"
       ]
     },
-    "banco_de_dados": {
+    "S1PWNBzDWjupIv206y0j": {
       "nome": "BANCO DE DADOS",
       "ementa": "Ementa da disciplina de BANCO DE DADOS.",
       "professorRef": "usuarios/28717",

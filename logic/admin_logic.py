@@ -2,9 +2,6 @@ from flask import render_template, request, redirect, url_for, session, flash
 from werkzeug.security import generate_password_hash
 from datetime import datetime
 import random
-import string
-import re
-import unicodedata
 from firebase_config import init_firestore
 
 db = init_firestore()
@@ -109,11 +106,6 @@ def toggle_usuario_logic(id_usuario):
     })
     return redirect(url_for('listar_usuarios'))
 
-def slugify(text):
-    text = unicodedata.normalize('NFKD', text).encode('ascii', 'ignore').decode('ascii')
-    text = re.sub(r'[^\w\s-]', '', text).strip().lower()
-    return re.sub(r'[-\s]+', '_', text)
-
 def listar_disciplinas_logic():
     if session.get('user_tipo') != 'admin':
         return redirect(url_for('dashboard'))
@@ -148,13 +140,6 @@ def criar_disciplina_logic():
             flash("Nome e Professor são obrigatórios!", "error")
             return redirect(url_for('criar_disciplina'))
 
-        disciplina_id = slugify(nome)
-        
-        # Check if ID already exists
-        if db.collection('disciplinas').document(disciplina_id).get().exists:
-            # Add a random suffix if it exists
-            disciplina_id += "_" + ''.join(random.choices(string.digits, k=4))
-
         dados = {
             'nome': nome,
             'ementa': ementa,
@@ -162,7 +147,7 @@ def criar_disciplina_logic():
             'alunosRefs': []
         }
 
-        db.collection('disciplinas').document(disciplina_id).set(dados)
+        db.collection('disciplinas').add(dados)
         flash(f"Disciplina '{nome}' criada com sucesso!", "success")
         return redirect(url_for('admin_listar_disciplinas'))
 
