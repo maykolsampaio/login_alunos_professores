@@ -1,0 +1,20 @@
+<div class="sidebar">
+    <div class="logo">Portal</div>
+    <nav>
+        {# Common Links #}
+        <!-- Assuming current endpoint check for active class could be done with request.endpoint, simplified for now -->
+        <a href="{{ url_for('dashboard') }}"
+            class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard</a>
+        <a href="{{ url_for('perfil.perfil') }}" class="nav-link">Meu Perfil</a>
+
+        {% if session.get('user_tipo') == 'admin' %}
+        <!-- Admin specific links -->
+        <a href="{{ url_for('admin.listar_usuarios') }}"
+            class="nav-link {% if request.endpoint == 'admin.listar_usuarios' %}active{% endif %}">Listar Usuários</a>
+        <a href="{{ url_for('admin.criar_usuario') }}"
+            class="nav-link {% if request.endpoint == 'admin.criar_usuario' %}active{% endif %}">Criar Usuário</a>
+        {% endif %}
+
+        <a href="{{ url_for('auth.logout') }}" class="nav-link" style="margin-top: auto;">Logout</a>
+    </nav>
+</div>

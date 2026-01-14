@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Alterar Senha - Portal{% endblock %}
+{% block header_title %}Alterar Senha{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 500px;">
+    <form action="{{ url_for('auth.trocar_senha') }}" method="POST">
+        <div class="form-group">
+            <label for="senha">Nova Senha</label>
+            <input type="password" id="senha" name="senha" required placeholder="Nova senha">
+        </div>
+        <button type="submit" class="btn">Atualizar Senha</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,679 @@
+{
+  "usuarios": {
+    "admin": {
+      "nome": "Administrador Principal",
+      "email": "admin@escola.com",
+      "matricula": "admin",
+      "senha": "admin",
+      "tipo": "admin",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-01T10:00:00"
+    },
+    "28717": {
+      "nome": "Prof. Jonathas",
+      "email": "jonathas@escola.com",
+      "matricula": "28717",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "85968": {
+      "nome": "Prof. Maykol",
+      "email": "maykol@escola.com",
+      "matricula": "85968",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "40719": {
+      "nome": "Prof. Marcos Ramon",
+      "email": "marcos.ramon@escola.com",
+      "matricula": "40719",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "49221": {
+      "nome": "Prof. Jeferson",
+      "email": "jeferson@escola.com",
+      "matricula": "49221",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "11254": {
+      "nome": "Prof. Mayllon",
+      "email": "mayllon@escola.com",
+      "matricula": "11254",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "39612": {
+      "nome": "Prof. Iallen",
+      "email": "iallen@escola.com",
+      "matricula": "39612",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "10209": {
+      "nome": "Prof. Wanderson",
+      "email": "wanderson@escola.com",
+      "matricula": "10209",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "63338": {
+      "nome": "Prof. Substituto",
+      "email": "substituto@escola.com",
+      "matricula": "63338",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2024-01-10T10:00:00"
+    },
+    "94526": {
+      "nome": "Prof. Ricardo Sekeff",
+      "email": "ricardo.sekeff@escola.com",
+      "matricula": "94526",
+      "senha": "PROF",
+      "tipo": "professor",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:48:13.051249"
+    },
+    "2024116ISINF0071": {
+      "nome": "Arthur Medeiros de Souza",
+      "email": "arthur.medeiros.de.souza@escola.com",
+      "matricula": "2024116ISINF0071",
+      "senha": "2024116ISINF0071",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474224"
+    },
+    "2024116ISINF0062": {
+      "nome": "Arthur Rodrigues Neiva Mamede",
+      "email": "arthur.rodrigues.neiva.mamede@escola.com",
+      "matricula": "2024116ISINF0062",
+      "senha": "2024116ISINF0062",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474251"
+    },
+    "2024116ISINF0042": {
+      "nome": "Caio Felipe da Silva Freitas",
+      "email": "caio.felipe.da.silva.freitas@escola.com",
+      "matricula": "2024116ISINF0042",
+      "senha": "2024116ISINF0042",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474258"
+    },
+    "2024116ISINF0055": {
+      "nome": "Carlos Eduardo Cruz da Costa",
+      "email": "carlos.eduardo.cruz.da.costa@escola.com",
+      "matricula": "2024116ISINF0055",
+      "senha": "2024116ISINF0055",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474262"
+    },
+    "2024116ISINF0066": {
+      "nome": "Cleiton Nascimento Rodrigues Júnior",
+      "email": "cleiton.nascimento.rodrigues.júnior@escola.com",
+      "matricula": "2024116ISINF0066",
+      "senha": "2024116ISINF0066",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474272"
+    },
+    "2024116ISINF0051": {
+      "nome": "Darlys Eduardo de Deus Aguiar",
+      "email": "darlys.eduardo.de.deus.aguiar@escola.com",
+      "matricula": "2024116ISINF0051",
+      "senha": "2024116ISINF0051",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474276"
+    },
+    "2024116ISINF0067": {
+      "nome": "Emilly Joice Gomes Siqueira",
+      "email": "emilly.joice.gomes.siqueira@escola.com",
+      "matricula": "2024116ISINF0067",
+      "senha": "2024116ISINF0067",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474280"
+    },
+    "2024116ISINF0037": {
+      "nome": "Emily Vitoria Melo da Silva",
+      "email": "emily.vitoria.melo.da.silva@escola.com",
+      "matricula": "2024116ISINF0037",
+      "senha": "2024116ISINF0037",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474284"
+    },
+    "2024116ISINF0039": {
+      "nome": "Eric Araujo Urquiza de Sousa",
+      "email": "eric.araujo.urquiza.de.sousa@escola.com",
+      "matricula": "2024116ISINF0039",
+      "senha": "2024116ISINF0039",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474288"
+    },
+    "2024116ISINF0045": {
+      "nome": "Erick Bryan Silva Sousa",
+      "email": "erick.bryan.silva.sousa@escola.com",
+      "matricula": "2024116ISINF0045",
+      "senha": "2024116ISINF0045",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474291"
+    },
+    "2024116ISINF0059": {
+      "nome": "Francisco das Chagas dos Santos",
+      "email": "francisco.das.chagas.dos.santos@escola.com",
+      "matricula": "2024116ISINF0059",
+      "senha": "2024116ISINF0059",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474295"
+    },
+    "2024116ISINF0050": {
+      "nome": "Geovanna Araujo Santana Alves",
+      "email": "geovanna.araujo.santana.alves@escola.com",
+      "matricula": "2024116ISINF0050",
+      "senha": "2024116ISINF0050",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474299"
+    },
+    "2024116ISINF0064": {
+      "nome": "Guilherme Marques Carneiro",
+      "email": "guilherme.marques.carneiro@escola.com",
+      "matricula": "2024116ISINF0064",
+      "senha": "2024116ISINF0064",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474304"
+    },
+    "2024116ISINF0043": {
+      "nome": "Isabelly de Holanda Silva Sousa",
+      "email": "isabelly.de.holanda.silva.sousa@escola.com",
+      "matricula": "2024116ISINF0043",
+      "senha": "2024116ISINF0043",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474308"
+    },
+    "2024116ISINF0057": {
+      "nome": "Jadylla Sophia Souza Lima",
+      "email": "jadylla.sophia.souza.lima@escola.com",
+      "matricula": "2024116ISINF0057",
+      "senha": "2024116ISINF0057",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474312"
+    },
+    "2023116ISINF0038": {
+      "nome": "João Victor dos Santos Silva",
+      "email": "joão.victor.dos.santos.silva@escola.com",
+      "matricula": "2023116ISINF0038",
+      "senha": "2023116ISINF0038",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474316"
+    },
+    "2024116ISINF0054": {
+      "nome": "Kailany Gabrielly Oliveira Nascimento",
+      "email": "kailany.gabrielly.oliveira.nascimento@escola.com",
+      "matricula": "2024116ISINF0054",
+      "senha": "2024116ISINF0054",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474320"
+    },
+    "2024116ISINF0058": {
+      "nome": "Karlla Iriany da Silva Vieira",
+      "email": "karlla.iriany.da.silva.vieira@escola.com",
+      "matricula": "2024116ISINF0058",
+      "senha": "2024116ISINF0058",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474324"
+    },
+    "2024116ISINF0052": {
+      "nome": "Kayllanne Eduarda Neves Caldas",
+      "email": "kayllanne.eduarda.neves.caldas@escola.com",
+      "matricula": "2024116ISINF0052",
+      "senha": "2024116ISINF0052",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474327"
+    },
+    "2024116ISINF0063": {
+      "nome": "Ketellyn Myrelly Coelho da Silva",
+      "email": "ketellyn.myrelly.coelho.da.silva@escola.com",
+      "matricula": "2024116ISINF0063",
+      "senha": "2024116ISINF0063",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474331"
+    },
+    "2024116ISINF0070": {
+      "nome": "Luis Eduardo Santos Miranda",
+      "email": "luis.eduardo.santos.miranda@escola.com",
+      "matricula": "2024116ISINF0070",
+      "senha": "2024116ISINF0070",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474335"
+    },
+    "2024116ISINF0068": {
+      "nome": "Luís Gustavo Gomes Sousa",
+      "email": "luís.gustavo.gomes.sousa@escola.com",
+      "matricula": "2024116ISINF0068",
+      "senha": "2024116ISINF0068",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474339"
+    },
+    "2023116ISINF0025": {
+      "nome": "Luís Gustavo Pereira Sobrinho",
+      "email": "luís.gustavo.pereira.sobrinho@escola.com",
+      "matricula": "2023116ISINF0025",
+      "senha": "2023116ISINF0025",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474343"
+    },
+    "2024116ISINF0047": {
+      "nome": "Luis Henrique de Souza Ananias",
+      "email": "luis.henrique.de.souza.ananias@escola.com",
+      "matricula": "2024116ISINF0047",
+      "senha": "2024116ISINF0047",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474347"
+    },
+    "2024116ISINF0046": {
+      "nome": "Maria Emanuele da Silva Santos",
+      "email": "maria.emanuele.da.silva.santos@escola.com",
+      "matricula": "2024116ISINF0046",
+      "senha": "2024116ISINF0046",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474351"
+    },
+    "2024116ISINF0053": {
+      "nome": "Maria Vitoria Livramento Feitosa",
+      "email": "maria.vitoria.livramento.feitosa@escola.com",
+      "matricula": "2024116ISINF0053",
+      "senha": "2024116ISINF0053",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474355"
+    },
+    "2024116ISINF0061": {
+      "nome": "Matheus Fernandes de Meneses",
+      "email": "matheus.fernandes.de.meneses@escola.com",
+      "matricula": "2024116ISINF0061",
+      "senha": "2024116ISINF0061",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474358"
+    },
+    "2024116ISINF0048": {
+      "nome": "Mayra Leticia Oliveira da Silva",
+      "email": "mayra.leticia.oliveira.da.silva@escola.com",
+      "matricula": "2024116ISINF0048",
+      "senha": "2024116ISINF0048",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474362"
+    },
+    "2024116ISINF0065": {
+      "nome": "Moisés Silva Urquisa",
+      "email": "moisés.silva.urquisa@escola.com",
+      "matricula": "2024116ISINF0065",
+      "senha": "2024116ISINF0065",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474366"
+    },
+    "2024116ISINF0038": {
+      "nome": "Nayra Maria de Sousa Nascimento",
+      "email": "nayra.maria.de.sousa.nascimento@escola.com",
+      "matricula": "2024116ISINF0038",
+      "senha": "2024116ISINF0038",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474370"
+    },
+    "2024116ISINF0060": {
+      "nome": "Sara Yasmim Gomes Silva",
+      "email": "sara.yasmim.gomes.silva@escola.com",
+      "matricula": "2024116ISINF0060",
+      "senha": "2024116ISINF0060",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474374"
+    },
+    "2024116ISINF0056": {
+      "nome": "Sayete do Nascimento Alves Sousa",
+      "email": "sayete.do.nascimento.alves.sousa@escola.com",
+      "matricula": "2024116ISINF0056",
+      "senha": "2024116ISINF0056",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "F",
+      "criado_em": "2026-01-13T20:58:43.474378"
+    },
+    "2024116ISINF0035": {
+      "nome": "Victor Emanoel Oliveira Lopes",
+      "email": "victor.emanoel.oliveira.lopes@escola.com",
+      "matricula": "2024116ISINF0035",
+      "senha": "2024116ISINF0035",
+      "tipo": "aluno",
+      "ativo": true,
+      "primeiro_login": true,
+      "sexo": "M",
+      "criado_em": "2026-01-13T20:58:43.474382"
+    }
+  },
+  "disciplinas": {
+    "manutencao_de_computadores": {
+      "nome": "Manutenção de Computadores",
+      "ementa": "Ementa da disciplina de Manutenção de Computadores.",
+      "professorRef": "usuarios/28717",
+      "alunosRefs": [
+        "usuarios/2023116ISINF0025",
+        "usuarios/2024116ISINF0046",
+        "usuarios/2024116ISINF0063",
+        "usuarios/2024116ISINF0035",
+        "usuarios/2024116ISINF0043"
+      ]
+    },
+    "protocolos_de_aplicacao": {
+      "nome": "Protocolos de Aplicação",
+      "ementa": "Ementa da disciplina de Protocolos de Aplicação.",
+      "professorRef": "usuarios/40719",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0066",
+        "usuarios/2024116ISINF0054",
+        "usuarios/2024116ISINF0050",
+        "usuarios/2024116ISINF0042",
+        "usuarios/2024116ISINF0056"
+      ]
+    },
+    "pratica_e_gerencia_de_redes": {
+      "nome": "Prática e Gerência de Redes",
+      "ementa": "Ementa da disciplina de Prática e Gerência de Redes.",
+      "professorRef": "usuarios/85968",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0056",
+        "usuarios/2024116ISINF0038",
+        "usuarios/2024116ISINF0061",
+        "usuarios/2024116ISINF0047",
+        "usuarios/2024116ISINF0057",
+        "usuarios/2024116ISINF0070",
+        "usuarios/2024116ISINF0058",
+        "usuarios/2024116ISINF0053",
+        "usuarios/2024116ISINF0054",
+        "usuarios/2024116ISINF0045"
+      ]
+    },
+    "programacao_web": {
+      "nome": "Programação Web",
+      "ementa": "Ementa da disciplina de Programação Web.",
+      "professorRef": "usuarios/85968",
+      "alunosRefs": [
+        "usuarios/2023116ISINF0025"
+      ]
+    },
+    "analise_e_projeto_de_sistemas": {
+      "nome": "Análise e Projeto de Sistemas",
+      "ementa": "Ementa da disciplina de Análise e Projeto de Sistemas.",
+      "professorRef": "usuarios/49221",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0061",
+        "usuarios/2024116ISINF0056",
+        "usuarios/2024116ISINF0046",
+        "usuarios/2024116ISINF0066",
+        "usuarios/2023116ISINF0025",
+        "usuarios/2024116ISINF0059",
+        "usuarios/2024116ISINF0048"
+      ]
+    },
+    "programacao_orientada_a_objetos": {
+      "nome": "Programação Orientada a Objetos",
+      "ementa": "Ementa da disciplina de Programação Orientada a Objetos.",
+      "professorRef": "usuarios/40719",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0067",
+        "usuarios/2024116ISINF0046"
+      ]
+    },
+    "topicos_especiais_em_desenvolvimento": {
+      "nome": "Tópicos Especiais em Desenvolvimento",
+      "ementa": "Ementa da disciplina de Tópicos Especiais em Desenvolvimento.",
+      "professorRef": "usuarios/94526",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0052",
+        "usuarios/2024116ISINF0058",
+        "usuarios/2024116ISINF0060",
+        "usuarios/2024116ISINF0050"
+      ]
+    },
+    "informatica_basica": {
+      "nome": "INFORMÁTICA BÁSICA",
+      "ementa": "Ementa da disciplina de INFORMÁTICA BÁSICA.",
+      "professorRef": "usuarios/28717",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0068",
+        "usuarios/2024116ISINF0055",
+        "usuarios/2024116ISINF0056",
+        "usuarios/2024116ISINF0047",
+        "usuarios/2024116ISINF0052"
+      ]
+    },
+    "sistemas_operacionais": {
+      "nome": "SISTEMAS OPERACIONAIS",
+      "ementa": "Ementa da disciplina de SISTEMAS OPERACIONAIS.",
+      "professorRef": "usuarios/85968",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0067",
+        "usuarios/2024116ISINF0046",
+        "usuarios/2024116ISINF0054",
+        "usuarios/2024116ISINF0060",
+        "usuarios/2024116ISINF0058",
+        "usuarios/2024116ISINF0057",
+        "usuarios/2024116ISINF0047",
+        "usuarios/2024116ISINF0052",
+        "usuarios/2024116ISINF0051"
+      ]
+    },
+    "fundamentos_de_redes_de_computadares": {
+      "nome": "FUNDAMENTOS DE REDES DE COMPUTADARES",
+      "ementa": "Ementa da disciplina de FUNDAMENTOS DE REDES DE COMPUTADARES.",
+      "professorRef": "usuarios/63338",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0062",
+        "usuarios/2024116ISINF0063",
+        "usuarios/2024116ISINF0054",
+        "usuarios/2024116ISINF0061",
+        "usuarios/2024116ISINF0058",
+        "usuarios/2024116ISINF0042",
+        "usuarios/2024116ISINF0068",
+        "usuarios/2024116ISINF0064"
+      ]
+    },
+    "robotica": {
+      "nome": "ROBOTICA",
+      "ementa": "Ementa da disciplina de ROBOTICA.",
+      "professorRef": "usuarios/11254",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0058",
+        "usuarios/2024116ISINF0039",
+        "usuarios/2024116ISINF0054",
+        "usuarios/2024116ISINF0052",
+        "usuarios/2024116ISINF0070"
+      ]
+    },
+    "algoritmos_e_logica_de_programacao": {
+      "nome": "ALGORITMOS E LÓGICA DE PROGRAMAÇÃO",
+      "ementa": "Ementa da disciplina de ALGORITMOS E LÓGICA DE PROGRAMAÇÃO.",
+      "professorRef": "usuarios/94526",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0056",
+        "usuarios/2024116ISINF0068",
+        "usuarios/2024116ISINF0058",
+        "usuarios/2024116ISINF0057",
+        "usuarios/2024116ISINF0042",
+        "usuarios/2024116ISINF0050",
+        "usuarios/2024116ISINF0039",
+        "usuarios/2024116ISINF0062",
+        "usuarios/2024116ISINF0048"
+      ]
+    },
+    "introducao_a_programacao_web": {
+      "nome": "INTRODUÇÃO A PROGRAMAÇÃO WEB",
+      "ementa": "Ementa da disciplina de INTRODUÇÃO A PROGRAMAÇÃO WEB.",
+      "professorRef": "usuarios/85968",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0050",
+        "usuarios/2024116ISINF0054",
+        "usuarios/2024116ISINF0066",
+        "usuarios/2024116ISINF0039"
+      ]
+    },
+    "tecnologias_emergentes": {
+      "nome": "TECNOLOGIAS EMERGENTES",
+      "ementa": "Ementa da disciplina de TECNOLOGIAS EMERGENTES.",
+      "professorRef": "usuarios/94526",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0046",
+        "usuarios/2024116ISINF0063",
+        "usuarios/2024116ISINF0051",
+        "usuarios/2024116ISINF0071"
+      ]
+    },
+    "seguranca_da_informacao": {
+      "nome": "SEGURANÇA DA INFORMAÇÃO",
+      "ementa": "Ementa da disciplina de SEGURANÇA DA INFORMAÇÃO.",
+      "professorRef": "usuarios/63338",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0053",
+        "usuarios/2024116ISINF0038"
+      ]
+    },
+    "banco_de_dados": {
+      "nome": "BANCO DE DADOS",
+      "ementa": "Ementa da disciplina de BANCO DE DADOS.",
+      "professorRef": "usuarios/28717",
+      "alunosRefs": [
+        "usuarios/2024116ISINF0046",
+        "usuarios/2024116ISINF0047",
+        "usuarios/2024116ISINF0064",
+        "usuarios/2024116ISINF0065",
+        "usuarios/2024116ISINF0052",
+        "usuarios/2024116ISINF0061",
+        "usuarios/2024116ISINF0055",
+        "usuarios/2024116ISINF0035"
+      ]
+    }
+  }
+}

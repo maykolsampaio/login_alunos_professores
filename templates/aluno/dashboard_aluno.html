@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Aluno - Portal{% endblock %}
+{% block header_title %}
+<div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+    <span>Minhas Disciplinas</span>
+</div>
+{% if disciplinas %}
+<br>
+<button class="btn btn-primary" onclick="openModal('addModal')">
+    <svg style="width: 20px; height: 20px; margin-right: 0.5rem;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+    </svg>
+    Adicionar Disciplina
+</button>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard_aluno.css') }}">
+
+<div class="disciplinas-grid">
+    {% for disc in disciplinas %}
+    <div class="disciplina-card">
+        <div class="disciplina-header">
+            <span class="disciplina-title">{{ disc.nome }}</span>
+        </div>
+
+        <div class="professor-info">
+            <div class="professor-avatar">
+                {{ disc.professor.nome[:1] | upper if disc.professor else '?' }}
+            </div>
+            <div class="professor-details">
+                <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--primary);">
+                    Professor(a)</p>
+                <h4>{{ disc.professor.nome if disc.professor else 'Pendente' }}</h4>
+                <p>{{ disc.professor.email if disc.professor else '-' }}</p>
+            </div>
+        </div>
+
+        <div class="card-actions">
+            <button class="btn-sm btn-outline" data-nome="{{ disc.nome }}" data-ementa="{{ disc.ementa }}"
+                data-prof-nome="{{ disc.professor.nome if disc.professor else 'Pendente' }}"
+                data-prof-email="{{ disc.professor.email if disc.professor else '-' }}"
+                onclick="handleDetailsClick(this)">
+                <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Detalhes
+            </button>
+            <form action="{{ url_for('aluno.remover_disciplina', disciplina_id=disc.id) }}" method="POST"
+                style="display: inline;" onsubmit="return confirm('Tem certeza que deseja remover esta disciplina?')">
+                <button type="submit" class="btn-sm btn-danger-outline">
+                    <svg style="width: 16px; height: 16px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                        </path>
+                    </svg>
+                    Remover
+                </button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+    <div class="empty-state" style="grid-column: 1 / -1;">
+        <svg style="width: 64px; height: 64px; margin-bottom: 1rem; opacity: 0.5;" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+            </path>
+        </svg>
+        <h3>Nenhuma disciplina encontrada</h3>
+        <p>Você ainda não está matriculado em nenhuma disciplina.</p>
+        <button class="btn btn-primary" style="margin-top: 1.5rem;" onclick="openModal('addModal')">Adicionar minha
+            primeira disciplina</button>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal Adicionar Disciplina -->
+<div id="addModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title">Adicionar Disciplina</h2>
+            <button class="close-modal" onclick="closeModal('addModal')">&times;</button>
+        </div>
+        <div class="disciplina-list">
+            {% for d in todas_disciplinas %}
+            <div class="disciplina-list-item">
+                <div>
+                    <strong style="display: block; color: var(--primary);">{{ d.nome }}</strong>
+                    <small style="color: var(--text-muted);">{{ d.ementa[:60] }}...</small>
+                </div>
+                <form action="{{ url_for('aluno.add_disciplina') }}" method="POST">
+                    <input type="hidden" name="disciplina_id" value="{{ d.id }}">
+                    <button type="submit" class="btn-sm btn-outline">Matricular</button>
+                </form>
+            </div>
+            {% else %}
+            <p style="text-align: center; color: var(--text-muted); padding: 2rem;">Todas as disciplinas disponíveis já
+                foram adicionadas!</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- Modal Detalhes -->
+<div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2 class="modal-title" id="det_nome">Nome da Disciplina</h2>
+            <button class="close-modal" onclick="closeModal('detailsModal')">&times;</button>
+        </div>
+        <div style="margin-bottom: 2rem;">
+            <h5 style="margin-bottom: 0.5rem; color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem;">
+                Ementa</h5>
+            <p id="det_ementa" style="line-height: 1.6;"></p>
+        </div>
+        <div style="background: var(--bg-secondary); padding: 1.5rem; border-radius: 0.75rem;">
+            <h5 style="margin-bottom: 1rem; color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem;">
+                Informações do Professor</h5>
+            <div style="display: flex; align-items: center; gap: 1rem;">
+                <div id="det_prof_avatar" class="professor-avatar"></div>
+                <div>
+                    <h4 id="det_prof_nome" style="margin: 0;"></h4>
+                    <p id="det_prof_email" style="margin: 0; color: var(--text-muted); font-size: 0.875rem;"></p>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+            <button class="btn btn-outline" onclick="closeModal('detailsModal')">Fechar</button>
+        </div>
+    </div>
+</div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard_aluno.js') }}"></script>
+{% endblock %}
+{% endblock %}

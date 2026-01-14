@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Usuário - Portal{% endblock %}
+{% block header_title %}Editar Usuário{% endblock %}
+
+{% block content %}
+<div class="card" style="max-width: 500px;">
+    <form method="post" action="/usuarios/editar/{{ usuario.id }}">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" value="{{ usuario.nome }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" value="{{ usuario.email }}" required>
+        </div>
+
+        <!-- Senha opcional -->
+        <div class="form-group">
+            <label for="senha">Nova Senha (opcional)</label>
+            <input type="password" name="senha" placeholder="Deixe em branco para manter">
+        </div>
+
+        <button type="submit" class="btn">Atualizar</button>
+    </form>
+</div>
+{% endblock %}

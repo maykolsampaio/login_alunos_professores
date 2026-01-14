@@ -1,0 +1,12 @@
+<header>
+    <h1>{% block header_title %}Portal{% endblock %}</h1>
+    <div class="user-profile">
+        {% if session.get('user_nome') %}
+        <span>Olá, <strong>{{ session.get('user_nome') }}</strong></span>
+        {% endif %}
+        <span
+            class="badge badge-{{ 'student' if session.get('user_tipo') == 'aluno' else 'teacher' if session.get('user_tipo') == 'professor' else 'admin' }}">
+            {{ session.get('user_tipo')|capitalize }}
+        </span>
+    </div>
+</header>

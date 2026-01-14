@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% block title %}Usuários - Portal{% endblock %}
+{% block header_title %}Gerenciamento de Usuários{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/usuarios.css') }}">
+
+{% set alunos = usuarios | selectattr('tipo', 'equalto', 'aluno') | list %}
+{% set professores = usuarios | selectattr('tipo', 'equalto', 'professor') | list %}
+
+<div class="stats-grid">
+    <div class="category-card" onclick="toggleSection('alunos')" id="card-alunos">
+        <div class="category-info">
+            <h3>Alunos</h3>
+            <p>Clique para ver a lista</p>
+        </div>
+        <div class="category-count">{{ alunos | length }}</div>
+    </div>
+
+    <div class="category-card" onclick="toggleSection('professores')" id="card-professores">
+        <div class="category-info">
+            <h3>Professores</h3>
+            <p>Clique para ver a lista</p>
+        </div>
+        <div class="category-count">{{ professores | length }}</div>
+    </div>
+</div>
+
+<!-- Seção de Alunos -->
+<div id="section-alunos" class="user-list-section">
+    <div class="table-container">
+        <div
+            style="padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); background: var(--bg-secondary);">
+            <h4 style="margin: 0; color: var(--primary);">Lista de Alunos</h4>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    {% if session.get('user_tipo') == 'admin' %}
+                    <th>Status</th>
+                    <th>Ações</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in alunos %}
+                <tr>
+                    <td><code>{{ u.matricula }}</code></td>
+                    <td><span style="font-weight: 600;">{{ u.nome }}</span></td>
+                    <td>{{ u.email }}</td>
+                    {% if session.get('user_tipo') == 'admin' %}
+                    <td>
+                        <span class="badge {{ 'badge-success' if u.ativo else 'badge-error' }}"
+                            style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">
+                            {{ 'Ativo' if u.ativo else 'Inativo' }}
+                        </span>
+                    </td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" {% if u.ativo %}checked{% endif %}
+                                data-url="{{ url_for('admin.toggle_usuario', id_usuario=u.id) }}"
+                                onchange="window.location.href = this.getAttribute('data-url')">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Seção de Professores -->
+<div id="section-professores" class="user-list-section">
+    <div class="table-container">
+        <div
+            style="padding: 1rem 1.5rem; border-bottom: 1px solid var(--border-color); background: var(--bg-secondary);">
+            <h4 style="margin: 0; color: var(--primary);">Lista de Professores</h4>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    {% if session.get('user_tipo') == 'admin' %}
+                    <th>Status</th>
+                    <th>Ações</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in professores %}
+                <tr>
+                    <td><code>{{ u.matricula }}</code></td>
+                    <td><span style="font-weight: 600;">{{ u.nome }}</span></td>
+                    <td>{{ u.email }}</td>
+                    {% if session.get('user_tipo') == 'admin' %}
+                    <td>
+                        <span class="badge {{ 'badge-success' if u.ativo else 'badge-error' }}"
+                            style="padding: 0.25rem 0.5rem; font-size: 0.75rem;">
+                            {{ 'Ativo' if u.ativo else 'Inativo' }}
+                        </span>
+                    </td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" {% if u.ativo %}checked{% endif %}
+                                data-url="{{ url_for('admin.toggle_usuario', id_usuario=u.id) }}"
+                                onchange="window.location.href = this.getAttribute('data-url')">
+                            <span class="slider"></span>
+                        </label>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/usuarios.js') }}"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Professor - Portal{% endblock %}
+{% block header_title %}Minhas Disciplinas e Alunos{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard_professor.css') }}">
+
+<div class="disciplinas-grid">
+    {% for disc in disciplinas %}
+    <div class="disciplina-card">
+        <div class="disciplina-header">
+            <span class="disciplina-title">{{ disc.nome }}</span>
+            <span class="aluno-count">{{ disc.alunos | length }} Alunos</span>
+        </div>
+
+        <div class="card-footer">
+            <button class="btn btn-primary"
+                style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.5rem;"
+                onclick="openDetailsModal('{{ disc.id }}')">
+                <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                    </path>
+                </svg>
+                Ver Detalhes e Alunos
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal para esta disciplina -->
+    <div id="modal-{{ disc.id }}" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">{{ disc.nome }}</h2>
+                <button class="close-modal" onclick="closeModal('modal-{{ disc.id }}')">&times;</button>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h5
+                    style="margin-bottom: 0.5rem; color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem;">
+                    Ementa Completa</h5>
+                <p style="line-height: 1.6; color: var(--text-main);">{{ disc.ementa }}</p>
+            </div>
+
+            <div>
+                <h5
+                    style="margin-bottom: 1rem; color: var(--text-muted); text-transform: uppercase; font-size: 0.75rem;">
+                    Alunos Matriculados ({{ disc.alunos | length }})</h5>
+                {% if disc.alunos %}
+                <div style="overflow-x: auto;">
+                    <table class="alunos-table">
+                        <thead>
+                            <tr>
+                                <th>Aluno</th>
+                                <th>Matrícula</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for aluno in disc.alunos %}
+                            <tr>
+                                <td>
+                                    <div class="student-badge">
+                                        <div class="student-initials">{{ aluno.nome[:2] | upper }}</div>
+                                        <span style="font-weight: 500;">{{ aluno.nome }}</span>
+                                    </div>
+                                </td>
+                                <td><code>{{ aluno.matricula }}</code></td>
+                                <td>{{ aluno.email }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div
+                    style="text-align: center; padding: 2rem; color: var(--text-muted); border: 1px dashed var(--border-color); border-radius: 0.75rem;">
+                    Nenhum aluno matriculado nesta disciplina ainda.
+                </div>
+                {% endif %}
+            </div>
+
+            <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+                <button class="btn btn-outline" onclick="closeModal('modal-{{ disc.id }}')">Fechar</button>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="card" style="text-align: center; padding: 4rem; grid-column: 1 / -1;">
+        <svg style="width: 64px; height: 64px; margin-bottom: 1rem; opacity: 0.5;" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+            </path>
+        </svg>
+        <h3>Você não possui disciplinas vinculadas.</h3>
+        <p>Entre em contato com a administração para vincular suas turmas.</p>
+    </div>
+    {% endfor %}
+</div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard_professor.js') }}"></script>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Portal{% endblock %}
+{% block header_title %}Visão Geral{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard_admin.css') }}">
+
+<div id="dashboard-data" data-total-alunos="{{ total_alunos | default(0) }}"
+    data-total-professores="{{ total_professores | default(0) }}"
+    data-total-usuarios="{{ total_usuarios | default(0) }}" data-alunos-masc="{{ alunos_masc | default(0) }}"
+    data-alunos-fem="{{ alunos_fem | default(0) }}" style="display: none;">
+</div>
+
+<div class="stats-grid-inner">
+    <div class="card card-stat">
+        <h3>Total de Usuários</h3>
+        <p class="stat-value" style="color: var(--primary);">{{ total_usuarios }}</p>
+    </div>
+    <div class="card card-stat">
+        <h3>Total de Alunos</h3>
+        <p class="stat-value" style="color: #818cf8;">{{ total_alunos }}</p>
+    </div>
+    <div class="card card-stat">
+        <h3>Total de Professores</h3>
+        <p class="stat-value" style="color: #34d399;">{{ total_professores }}</p>
+    </div>
+</div>
+
+<div class="charts-grid-inner">
+    <div class="card chart-card">
+        <h3>Distribuição de Usuários</h3>
+        <canvas id="userDistChart"></canvas>
+    </div>
+    <div class="card chart-card">
+        <h3>Alunos por Gênero</h3>
+        <canvas id="genderChart"></canvas>
+    </div>
+</div>
+
+<div class="card">
+    <h2 class="recent-users-title">
+        Usuários Recentes
+    </h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Matrícula</th>
+                <th>Tipo</th>
+                <th>Criado em</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in recents %}
+            <tr>
+                <td>{{ user.nome }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.matricula }}</td>
+                <td>{{ user.tipo }}</td>
+                <td>{{ user.criado_em | datetime_format }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard_admin.js') }}"></script>
+{% endblock %}

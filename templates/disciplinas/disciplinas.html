@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}Usuários - Portal{% endblock %}
+{% block header_title %}Lista de Usuários{% endblock %}
+
+{% block content %}
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Matrícula</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Tipo</th>
+                {% if session.get('user_tipo') == 'admin' %}
+                <th>Status</th>
+                <th>Ações</th>
+                {% endif %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for u in usuarios %}
+            <tr>
+                <!-- Handling potential missing 'matricula' field gracefully or assuming it exists from previous steps -->
+                <td>{{ u.matricula if u.matricula else '-' }}</td>
+                <td>{{ u.nome }}</td>
+                <td>{{ u.email }}</td>
+                <td>
+                    <span
+                        class="badge badge-{{ 'student' if u.tipo == 'aluno' else 'teacher' if u.tipo == 'professor' else 'admin' }}">
+                        {{ u.tipo|capitalize }}
+                    </span>
+                </td>
+                {% if session.get('user_tipo') == 'admin' %}
+                <td>
+                    <span class="{{ 'badge-active' if u.ativo else 'badge-inactive' }}">
+                        {{ 'Ativo' if u.ativo else 'Inativo' }}
+                    </span>
+                </td>
+                <td>
+                    <label class="switch" title="Clique para {{ 'Desativar' if u.ativo else 'Ativar' }}">
+                        <input type="checkbox" {% if u.ativo %}checked{% endif %}
+                            data-url="{{ url_for('admin.toggle_usuario', id_usuario=u.id) }}"
+                            onchange="window.location.href = this.dataset.url;">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                {% endif %}
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6" style="text-align: center; color: var(--text-muted);">Nenhum usuário encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

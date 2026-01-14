@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Perfil Usuário - Portal{% endblock %}
+{% block header_title %}Perfil do Usuário{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/perfil.css') }}">
+<div class="card profile-card">
+    <h2 class="profile-title">Meu Perfil</h2>
+
+    <form method="post" action="{{ url_for('perfil.perfil') }}">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" value="{{ usuario.nome }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{ usuario.email }}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="sexo">Sexo</label>
+            <select id="sexo" name="sexo" required>
+                <option value="M" {% if usuario.sexo=='M' %}selected{% endif %}>Masculino</option>
+                <option value="F" {% if usuario.sexo=='F' %}selected{% endif %}>Feminino</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label for="senha">Nova Senha (opcional)</label>
+            <input type="password" id="senha" name="senha" placeholder="Deixe em branco para manter">
+        </div>
+
+        <div class="form-group">
+            <label for="confirmar_senha">Confirmar Senha</label>
+            <input type="password" id="confirmar_senha" name="confirmar_senha"
+                placeholder="Digite novamente a nova senha">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Salvar Alterações</button>
+    </form>
+
+    <hr class="profile-divider">
+
+    <div class="deactivate-section">
+        <p class="deactivate-text">Deseja encerrar sua conta? Esta ação não pode ser
+            desfeita.</p>
+        <a href="{{ url_for('perfil.desativar_conta') }}"
+            onclick="return confirm('Tem certeza que deseja desativar sua conta? Você será desconectado.')"
+            class="btn-deactivate">
+            Encerrar Conta
+        </a>
+    </div>
+</div>
+{% endblock %}
